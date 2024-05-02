@@ -1,1 +1,1 @@
-Classic Pong game created using Python & Tkinter that takes two-player input.
+Classic Pong game created using Python & Turtle that takes two-player input.
