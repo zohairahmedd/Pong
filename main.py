@@ -96,13 +96,13 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1 
-        winsound.PlaySound("bouncing.wav", winsound.SND_ASYNC) # sound is played each "bounce"
+        winsound.PlaySound("pingpong1.wav", winsound.SND_ASYNC) # sound is played each "bounce"
 
     # if the ball touches bottom of the window, reset the ball's y coordinate to -280 and flip its coordinates so that it appears the ball has bounced
     if ball.ycor() < -280:
         ball.sety(-280)
         ball.dy *= -1  
-        winsound.PlaySound("bouncing.wav", winsound.SND_ASYNC) # sound is played each "bounce"
+        winsound.PlaySound("pingpong1.wav", winsound.SND_ASYNC) # sound is played each "bounce"
 
     # resetting balls position to the middle paddle_a receives point
     if ball.xcor() > 400:
@@ -126,12 +126,12 @@ while True:
     if ball.xcor() > 330 and (ball.xcor() < 350 and paddle_b.ycor() + 40 > ball.ycor() > paddle_b.ycor() - 40): # checks if the ball's x-coordinate is within a certain range and if the ball's y-coordinate is within a certain range relative to paddle_b's y-coordinate
         ball.setx(330) # sets the ball to a position just in front of the paddle
         ball.dx *= -1 # flips the balls flow of direction
-        winsound.PlaySound("bouncing.wav", winsound.SND_ASYNC) # sound of bouncing off paddle
+        winsound.PlaySound("pingpong2.wav", winsound.SND_ASYNC) # sound of bouncing off paddle
 
     if ball.xcor() < -330 and (ball.xcor() > -350 and paddle_a.ycor() + 40 > ball.ycor() > paddle_a.ycor() - 40): # checks if the ball's x-coordinate is within a certain range and if the ball's y-coordinate is within a certain range relative to paddle_a's y-coordinate
         ball.setx(-330) # sets the ball to a position just in front of the paddle
         ball.dx *= -1 # flips the balls flow of direction
-        winsound.PlaySound("bouncing.wav", winsound.SND_ASYNC) # sound of bouncing off paddle
+        winsound.PlaySound("pingpong2.wav", winsound.SND_ASYNC) # sound of bouncing off paddle
 
     # restricting paddles from going off-screen
     if paddle_a.ycor() > 250:
