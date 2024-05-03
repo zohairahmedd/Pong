@@ -49,6 +49,14 @@ pen.hideturtle() # hides the trail that the turtle cursor leaves behind
 pen.goto(0, 260) # moves turtle to these coordinates (top of the window)
 pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal")) # prints this text at location of turtle cursor
 
+line = turtle.Turtle()
+line.speed(0)
+line.shape("square")
+line.shapesize(stretch_wid=32, stretch_len=0.1)
+line.color("white")
+line.penup()
+line.goto(0,0)
+
 # finds the x/y coordinate and assigns them to x/y - consequently, pixels are added or removed based on function name then those values are set as new turtle coordinates
 def paddle_a_up():
     y = paddle_a.ycor()
