@@ -33,12 +33,12 @@ paddle_b.goto(350, 0) # moves turtle to these coordinates (to the right hand sid
 # variable ball and attributes for it
 ball = turtle.Turtle() # creates new turtle object ball allowing for graphics
 ball.speed(0) # sets speed of turtle to the fastest (0)
-ball.shape("square") # shape of turtle is set to square
+ball.shape("circle") # shape of turtle is set to square
 ball.color("white") # sets colour of the turtle
 ball.penup() # turtle will not draw anything when it moves
 ball.goto(0, 0) # moves turtle to these coordinates (to the centre of the window)
-ball.dx = 0.15  # speed of the balls x coordinate
-ball.dy = 0.15  # speed of the balls y coordinate
+ball.dx = 0.3  # speed of the balls x coordinate
+ball.dy = 0.3  # speed of the balls y coordinate
 
 # variable pen and attributes for it
 pen = turtle.Turtle() # creates new turtle object pen allowing for graphics
@@ -49,6 +49,7 @@ pen.hideturtle() # hides the trail that the turtle cursor leaves behind
 pen.goto(0, 260) # moves turtle to these coordinates (top of the window)
 pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal")) # prints this text at location of turtle cursor
 
+# adds horizontal line in middle of window
 line = turtle.Turtle()
 line.speed(0)
 line.shape("square")
@@ -107,7 +108,8 @@ while True:
     # resetting balls position to the middle paddle_a receives point
     if ball.xcor() > 400:
         ball.goto(0, 0)
-        ball.dx *= -1 # after a point, the ball will travel in the opposite direction in which it travelled before
+        ball.dx = -0.3  # reset balls x coordinate speed after point
+        ball.dy = -0.3  # reset balls y coordinate speed after point
         # score keeping
         score_a += 1
         pen.clear()
@@ -116,7 +118,8 @@ while True:
     # resetting balls position after each point
     if ball.xcor() < -405:
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dx = 0.3  # reset balls x coordinate speed after point
+        ball.dy = 0.3  # reset balls y coordinate speed after point
         # score keeping
         score_b += 1
         pen.clear() # clear previous score to write the new score
@@ -126,11 +129,15 @@ while True:
     if ball.xcor() > 330 and (ball.xcor() < 350 and paddle_b.ycor() + 40 > ball.ycor() > paddle_b.ycor() - 40): # checks if the ball's x-coordinate is within a certain range and if the ball's y-coordinate is within a certain range relative to paddle_b's y-coordinate
         ball.setx(330) # sets the ball to a position just in front of the paddle
         ball.dx *= -1 # flips the balls flow of direction
+        ball.dx = ball.dx * 1.05  # speed up balls x coordinate after each paddle hit
+        ball.dy = ball.dy * 1.05  # speed up balls y coordinate after each paddle hit
         winsound.PlaySound("pingpong2.wav", winsound.SND_ASYNC) # sound of bouncing off paddle
 
     if ball.xcor() < -330 and (ball.xcor() > -350 and paddle_a.ycor() + 40 > ball.ycor() > paddle_a.ycor() - 40): # checks if the ball's x-coordinate is within a certain range and if the ball's y-coordinate is within a certain range relative to paddle_a's y-coordinate
         ball.setx(-330) # sets the ball to a position just in front of the paddle
         ball.dx *= -1 # flips the balls flow of direction
+        ball.dx = ball.dx * 1.05  # speed up balls x coordinate after each paddle hit
+        ball.dy = ball.dy * 1.05  # speed up balls y coordinate after each paddle hit
         winsound.PlaySound("pingpong2.wav", winsound.SND_ASYNC) # sound of bouncing off paddle
 
     # restricting paddles from going off-screen
