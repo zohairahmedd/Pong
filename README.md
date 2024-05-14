@@ -8,6 +8,7 @@ Developed a classic Pong application using Python that can take two sets of user
 - Included scoring system for each player, as well as sound when the ball interacts with an object
 
 ## Commands
+download turtle package: pip install PythonTurtle
 run with main.py
 
 ## Screenshots
